@@ -86,7 +86,8 @@ class ProfileScreen extends Component {
             <View style={styles.settingTextContainer}>
               <Text>View My Listings</Text>
             </View>
-          <TouchableOpacity onPress={() => this.props.login_actions.logout()}style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.login_actions.logout()} style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/logout.png')} style={styles.iconStyle}/>
             </View>
