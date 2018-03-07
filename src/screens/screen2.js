@@ -18,7 +18,7 @@ export default class Screen2 extends Component {
             <Button>Ok</Button>
           </CardActions>
         </Card>
-        <Button raised primary onPress={() => navigate('screen1')}>
+        <Button raised primary onPress={() => navigate('Splash')}>
           Screen 1
         </Button>
       </View>
