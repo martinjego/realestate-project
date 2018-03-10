@@ -1,6 +1,6 @@
 import AppNavigator from "../navigation/navigationStack";
 const initialState = AppNavigator.router.getStateForAction(
-  AppNavigator.router.getActionForPathAndParams("screen1")
+  AppNavigator.router.getActionForPathAndParams("Splash")
 );
 const navigationReducer = (state = initialState, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);

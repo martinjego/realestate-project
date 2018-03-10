@@ -1,14 +1,42 @@
 import { StackNavigator } from "react-navigation";
-import Screen1 from "../screens/screen1";
-import Screen2 from "../screens/screen2";
+import SplashScreen from "../screens/SplashScreen";
+import LoginScreen from "../screens/LoginScreen";
+import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+
+const fade = (props) => {
+    const {position, scene} = props
+
+    const index = scene.index
+
+    const translateX = 0
+    const translateY = 0
+
+    const opacity = position.interpolate({
+        inputRange: [index - 0.7, index, index + 0.7],
+        outputRange: [0.3, 1, 0.3]
+    })
+
+    return {
+        opacity,
+        transform: [{translateX}, {translateY}]
+    }
+}
 
 const navigator = StackNavigator({
-  screen1: {
-    screen: Screen1, navigationOptions: { header: null }
+  Splash: {
+    screen: SplashScreen, navigationOptions: { header: null }
   },
-  screen2: {
-    screen: Screen2, navigationOptions: { header: null }
+  Login: {
+    screen: LoginScreen, navigationOptions: { header: null }
   }
+}, {
+  transitionConfig: () => ({
+        screenInterpolator: (props) => {
+          const {scene} = props
+             if (scene.route.routeName === 'Login') {return fade(props)}
+             return CardStackStyleInterpolator.forHorizontal(props)
+          }        
+        })
 });
 
 export default navigator;
