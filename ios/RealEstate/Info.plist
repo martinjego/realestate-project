@@ -64,6 +64,9 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Avenir-Bold.otf</string>
+		<string>Avenir-Light.otf</string>
+		<string>Avenir.otf</string>
 	</array>
 </dict>
 </plist>

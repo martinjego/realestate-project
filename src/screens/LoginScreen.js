@@ -31,7 +31,7 @@ export default class LoginScreen extends Component {
             value={this.state.password}
             onChangeText={password => this.setState({ password })}
           />
-          <Button raised onPress={() => console.log('Pressed')}>
+          <Button raised onPress={() => navigate('Home')}>
             Login
           </Button>
           <Button raised primary onPress={() => console.log('Pressed')}>

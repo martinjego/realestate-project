@@ -48,6 +48,9 @@
 		8D72FF4D6A8D4306952ED642 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88F6BF86AA3E477BA8336DC0 /* Octicons.ttf */; };
 		9595737696BB4391B7FA131F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C566B96AD5E442BBE417821 /* SimpleLineIcons.ttf */; };
 		36508BCF829945AB9184CD8B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F9A38555BE249C9B6411A9A /* Zocial.ttf */; };
+		3FF5F0950E01426C856DE82D /* Avenir-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04124F6C7F604C188A6D3A4F /* Avenir-Bold.otf */; };
+		32B5F78647D546F9BE55F1DE /* Avenir-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 562FD2324F2844E48E6462E3 /* Avenir-Light.otf */; };
+		DDDC98329AA7421BB81A4FBD /* Avenir.otf in Resources */ = {isa = PBXBuildFile; fileRef = E567C545602D465FB4B7CD7C /* Avenir.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +313,9 @@
 		88F6BF86AA3E477BA8336DC0 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		8C566B96AD5E442BBE417821 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5F9A38555BE249C9B6411A9A /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		04124F6C7F604C188A6D3A4F /* Avenir-Bold.otf */ = {isa = PBXFileReference; name = "Avenir-Bold.otf"; path = "../assets/fonts/Avenir-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		562FD2324F2844E48E6462E3 /* Avenir-Light.otf */ = {isa = PBXFileReference; name = "Avenir-Light.otf"; path = "../assets/fonts/Avenir-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E567C545602D465FB4B7CD7C /* Avenir.otf */ = {isa = PBXFileReference; name = "Avenir.otf"; path = "../assets/fonts/Avenir.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -579,6 +585,9 @@
 				88F6BF86AA3E477BA8336DC0 /* Octicons.ttf */,
 				8C566B96AD5E442BBE417821 /* SimpleLineIcons.ttf */,
 				5F9A38555BE249C9B6411A9A /* Zocial.ttf */,
+				04124F6C7F604C188A6D3A4F /* Avenir-Bold.otf */,
+				562FD2324F2844E48E6462E3 /* Avenir-Light.otf */,
+				E567C545602D465FB4B7CD7C /* Avenir.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -985,6 +994,9 @@
 				8D72FF4D6A8D4306952ED642 /* Octicons.ttf in Resources */,
 				9595737696BB4391B7FA131F /* SimpleLineIcons.ttf in Resources */,
 				36508BCF829945AB9184CD8B /* Zocial.ttf in Resources */,
+				3FF5F0950E01426C856DE82D /* Avenir-Bold.otf in Resources */,
+				32B5F78647D546F9BE55F1DE /* Avenir-Light.otf in Resources */,
+				DDDC98329AA7421BB81A4FBD /* Avenir.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
