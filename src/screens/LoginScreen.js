@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Button, Headline, TextInput, Text } from 'react-native-paper';
+import { View, Image, TextInput } from 'react-native';
+import { Button, Headline, Text } from 'react-native-paper';
 import MainBackground from '../components/Member/MainBackground';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/login';
 
 export default class LoginScreen extends Component {
@@ -9,7 +10,7 @@ export default class LoginScreen extends Component {
     super();
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       text: '',
     }
@@ -17,22 +18,31 @@ export default class LoginScreen extends Component {
   render() {
     const { navigate } = this.props.navigation
     return (
-        <MainBackground source={require('../img/main_bg.png')} style={styles.container}>
+        <MainBackground style={styles.container}>
           <View style={styles.logoContainer}>
-            <Headline>Login Screen</Headline>
+            <Image source={require('../img/logo.png')} style={styles.logoStyle}/>
           </View>
           <View style={styles.formContainer}>
-            <TextInput
-              label='Username'
-              value={this.state.username}
-              onChangeText={text => this.setState({ text })}
-            />
-            <TextInput
-              label='Password'
-              value={this.state.password}
-              onChangeText={password => this.setState({ password })}
-            />
-            <Button raised onPress={() => navigate('Home')}>
+            <View style={styles.inputContainer}>
+              <Icon name="envelope-o" style={{flex: 1}} size={20}/>
+              <TextInput
+                value={this.state.email}
+                onChangeText={email => this.setState({ email })}
+                style={{ flex: 8 }}
+                placeholder="Email"
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <Icon name="lock" style={{flex: 1}} size={20}/>
+              <TextInput
+                value={this.state.password}
+                onChangeText={password => this.setState({ password })}
+                style={{ flex: 8 }}
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+            </View>
+            <Button raised onPress={() => navigate('Home')} style={{backgroundColor: '#FFD55F', borderRadius: 20}}>
               Login
             </Button>
             <Button raised primary onPress={() => console.log('Pressed')}>

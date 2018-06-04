@@ -7,9 +7,21 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  logoStyle: {
+    resizeMode: 'contain',
+  },
   formContainer: {
-    flex: 1,
-    marginHorizontal: 30
+    flex: 2,
+    marginHorizontal: 30,
+  },
+  inputContainer: {
+    backgroundColor: '#fff',  
+    borderColor: '#000', 
+    borderRadius: 10, 
+    padding: 20, 
+    flexDirection: 'row',
+    marginVertical: 5 
+
   },
   otherLinks: {
     flexDirection: 'row'
