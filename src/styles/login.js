@@ -2,6 +2,11 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
+  headerContainer: {
+    position: 'absolute',
+    left: 15,
+    top: 20
+  },
   logoContainer: {
     flex: 1,
     alignItems: 'center',
@@ -18,7 +23,7 @@ module.exports = StyleSheet.create({
     backgroundColor: '#fff',  
     borderColor: '#000', 
     borderRadius: 10, 
-    padding: 20, 
+    padding: 15, 
     flexDirection: 'row',
     marginVertical: 5 
 
@@ -26,7 +31,7 @@ module.exports = StyleSheet.create({
   buttonContainer: {
     backgroundColor: vars.colorSecondary,
     borderRadius: 20,
-    padding: 10,
+    padding: 15,
     marginVertical: 10
   },
   orStyle: {
