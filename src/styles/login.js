@@ -23,7 +23,28 @@ module.exports = StyleSheet.create({
     marginVertical: 5 
 
   },
+  buttonContainer: {
+    backgroundColor: vars.colorSecondary,
+    borderRadius: 20,
+    padding: 10,
+    marginVertical: 10
+  },
+  orStyle: {
+    marginVertical: 10,
+    textAlign: 'center',
+    color: vars.colorText,
+    fontSize: 16
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontFamily: vars.fontFamily,
+    fontSize: 16 
+  },
   otherLinks: {
-    flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10
   }
 })

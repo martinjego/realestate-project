@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { View, Image, TextInput } from 'react-native';
+import { 
+  View, 
+  Image, 
+  TextInput,
+  TouchableOpacity
+} from 'react-native';
 import { Button, Headline, Text } from 'react-native-paper';
 import MainBackground from '../components/Member/MainBackground';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -42,15 +47,21 @@ export default class LoginScreen extends Component {
                 secureTextEntry={true}
               />
             </View>
-            <Button raised onPress={() => navigate('Home')} style={{backgroundColor: '#FFD55F', borderRadius: 20}}>
-              Login
-            </Button>
-            <Button raised primary onPress={() => console.log('Pressed')}>
-              Login with Facebook
-            </Button>
+            <TouchableOpacity onPress={() => navigate('Home')}>
+              <View style={styles.buttonContainer}>
+                <Text style={styles.buttonText}>LOGIN</Text>
+              </View>
+            </TouchableOpacity>
+            <Text style={styles.orStyle}>Or</Text>
+            <TouchableOpacity onPress={() => console.log('Login with facebook')}>
+              <View style={[styles.buttonContainer, {backgroundColor: "#3B5998", flexDirection: 'row'}]}>
+                <Image source={require('../img/facebook-icon.png')} style={{flex: 1, resizeMode: 'contain'}}/>
+                <Text style={[styles.buttonText, {color: '#FFF', flex: 5, textAlign: 'left'}]}>Log in with Facebook</Text>
+              </View>
+            </TouchableOpacity>
             <View style={styles.otherLinks}>
-              <Text style={{flex: 1 }}>Register</Text>
-              <Text style={{flex: 1, textAlign: 'right'}}>Forgot Password?</Text>
+              <Text onPress={console.log('forgot')} style={{flex: 1, color: '#FFF' }}>Forgot Password</Text>
+              <Text onPress={console.log('create')} style={{flex: 1, color: '#FFF', textAlign: 'right'}}>Create an Account</Text>
             </View>
           </View>
         </MainBackground>
