@@ -2,8 +2,14 @@ import { TabNavigator, DrawerNavigator } from 'react-navigation';
 import HomeScreen from "../screens/Member/HomeScreen";
 
 const TabMemberRoutes = TabNavigator({
-  Home: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } }
-})
+  Home: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
+},{
+    tabBarOptions: {
+      activeTintColor: 'black',
+      inactiveTintColor: 'gray',
+    },
+  }
+)
 
 const MemberNavigator = DrawerNavigator({
   Member: TabMemberRoutes 
