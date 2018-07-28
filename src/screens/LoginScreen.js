@@ -6,22 +6,40 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Button, Headline, Text } from 'react-native-paper';
-import MainBackground from '../components/Member/MainBackground';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import MainBackground from '../components/Member/MainBackground';
 import styles from '../styles/login';
 
-export default class LoginScreen extends Component {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as loginActions from '../actions/login_actions';
+import { retrieveData } from '../utils/storage';
+
+class LoginScreen extends Component {
   constructor() {
     super();
 
     this.state = {
       email: '',
       password: '',
-      text: '',
+    }
+  }
+
+  async componentWillMount() { // This is for auto login
+    const { login_actions } = this.props;
+
+    let email = await retrieveData('email');
+    let password = await retrieveData('password');
+    console.log(email, password)
+
+    if (email && password) {
+      login_actions.login({ email: email, password: password });
     }
   }
   render() {
-    const { navigate } = this.props.navigation
+    const { navigation: { navigate }, login_actions  } = this.props
     return (
         <MainBackground>
           <View style={styles.logoContainer}>
@@ -36,6 +54,8 @@ export default class LoginScreen extends Component {
             <View style={styles.inputContainer}>
               <Icon name="envelope-o" style={{flex: 1}} size={20}/>
               <TextInput
+                autoCapitalize="none"
+                autoCorrect={false}
                 value={this.state.email}
                 onChangeText={email => this.setState({ email })}
                 style={{ flex: 8 }}
@@ -52,7 +72,7 @@ export default class LoginScreen extends Component {
                 secureTextEntry={true}
               />
             </View>
-            <TouchableOpacity onPress={() => navigate('Home')}>
+            <TouchableOpacity onPress={() => login_actions.login(this.state)}>
               <View style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>LOGIN</Text>
               </View>
@@ -73,3 +93,17 @@ export default class LoginScreen extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login_actions: bindActionCreators(loginActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
