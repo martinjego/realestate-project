@@ -25,7 +25,7 @@ export default class HomeScreen extends Component {
   getResidence() {
     return this.state.residences.map(residence => {
       return (
-        <TouchableOpacity key={residence} >
+        <TouchableOpacity key={residence}>
           <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.listContainer}>
             <View style={styles.overlay}/>
             <Text style={styles.listTitle}>THE RESIDENCE {residence}</Text>
