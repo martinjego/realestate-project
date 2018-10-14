@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { connect } from 'react-redux';
@@ -24,7 +24,8 @@ class ProfileScreen extends Component {
   render() {
     const { 
       navigation: { navigate }, 
-      auth: { user } 
+      auth: { user },
+      login_actions
     } = this.props
     return (
       <View style={styles.container}>
@@ -72,14 +73,14 @@ class ProfileScreen extends Component {
               <Text>View My Listings</Text>
             </View>
           </View>
-          <View style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
+          <TouchableOpacity onPress={() => this.props.login_actions.logout()}style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/logout.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>Logout</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     )
