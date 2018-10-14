@@ -43,11 +43,13 @@ module.exports = StyleSheet.create({
   settingsContainer: {
     flex: 3,
     paddingHorizontal: 40,
+    marginBottom: '15%'
   },
   settingStyle: {
     flex: 1,
     flexDirection: 'row',
-    borderBottomWidth: 1 
+    borderColor: vars.colorGray,
+    borderBottomWidth: 1
   },
   iconContainer: {
     flex: 1,

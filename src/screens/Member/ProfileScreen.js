@@ -72,7 +72,7 @@ class ProfileScreen extends Component {
               <Text>View My Listings</Text>
             </View>
           </View>
-          <View style={styles.settingStyle}>
+          <View style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/logout.png')} style={styles.iconStyle}/>
             </View>
