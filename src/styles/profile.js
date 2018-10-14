@@ -47,12 +47,17 @@ module.exports = StyleSheet.create({
   settingStyle: {
     flex: 1,
     flexDirection: 'row',
+    borderBottomWidth: 1 
   },
   iconContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
-
+    justifyContent: 'center',
+  },
+  iconStyle: {
+    width: 25, 
+    height: 25,
+    resizeMode: 'contain'
   },
   settingTextContainer: {
     flex: 2,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { connect } from 'react-redux';
@@ -42,7 +42,7 @@ class ProfileScreen extends Component {
         <View style={styles.settingsContainer}>
           <View style={styles.settingStyle}>
             <View style={styles.iconContainer}>
-              <Text>ICON</Text>
+              <Image source={require('../../img/pen.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>Update Contact Details</Text>
@@ -50,7 +50,7 @@ class ProfileScreen extends Component {
           </View>
           <View style={styles.settingStyle}>
             <View style={styles.iconContainer}>
-              <Text>ICON</Text>
+              <Image source={require('../../img/power.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>Reset Password</Text>
@@ -58,7 +58,7 @@ class ProfileScreen extends Component {
           </View>
           <View style={styles.settingStyle}>
             <View style={styles.iconContainer}>
-              <Text>ICON</Text>
+              <Image source={require('../../img/inquiries.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>View My Inquiries</Text>
@@ -66,7 +66,7 @@ class ProfileScreen extends Component {
           </View>
           <View style={styles.settingStyle}>
             <View style={styles.iconContainer}>
-              <Text>ICON</Text>
+              <Image source={require('../../img/cart.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>View My Listings</Text>
@@ -74,7 +74,7 @@ class ProfileScreen extends Component {
           </View>
           <View style={styles.settingStyle}>
             <View style={styles.iconContainer}>
-              <Text>ICON</Text>
+              <Image source={require('../../img/logout.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>Logout</Text>
