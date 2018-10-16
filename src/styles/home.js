@@ -17,6 +17,11 @@ module.exports = StyleSheet.create({
     fontFamily: 'Avenir',
     color: vars.colorText
   },
+  listDescription: {
+    fontSize: 15,
+    fontFamily: 'Avenir',
+    color: vars.colorText
+  },
   overlay: {
     position: 'absolute',
     top: 0,

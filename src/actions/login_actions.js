@@ -2,7 +2,7 @@ import { Alert, AlertIOS, Platform, AsyncStorage } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 import { storeData, retrieveData, removeData } from '../utils/storage';
-import { API_KEY } from  '../config/api';
+import { API_LOGIN_KEY } from  '../config/api';
 
 const ALERT = (Platform.OS === 'ios') ? AlertIOS : Alert;
 
@@ -47,7 +47,7 @@ export function updateCustomerLocation(coords) {
 export function sign_up(state) {
   return dispatch => {
     dispatch(sessionRequest())
-    fetch(`${API_KEY}`, {
+    fetch(`${API_LOGIN_KEY}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -84,7 +84,7 @@ export function login(state) {
   console.log('password', state.password)
   return dispatch => {
     dispatch(sessionRequest())
-    fetch(`${API_KEY}/login`, {
+    fetch(`${API_LOGIN_KEY}/login`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

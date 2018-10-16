@@ -13,10 +13,10 @@ import styles from '../../styles/profile';
 
 class ProfileScreen extends Component {
   static navigationOptions = {
-    tabBarIcon: () => (
+    tabBarIcon: ({tintColor}) => (
       <Icon
         name="user"
-        color="#000"
+        color={tintColor}
         size={30}
       />
     )
