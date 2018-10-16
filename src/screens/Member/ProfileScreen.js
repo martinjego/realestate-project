@@ -62,7 +62,7 @@ class ProfileScreen extends Component {
                 <Text>Update Contact Details</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('Home')} style={styles.settingStyle}>
+          <TouchableOpacity onPress={() => navigate('ResetPassword')} style={styles.settingStyle}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/power.png')} style={styles.iconStyle}/>
             </View>

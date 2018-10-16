@@ -3,6 +3,7 @@ import SplashScreen from "../screens/SplashScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/SignupScreen";
 import UpdateContactScreen from "../screens/Member/UpdateContactScreen";
+import ResetPasswordScreen from "../screens/Member/ResetPasswordScreen";
 //Member
 import MemberNavigator from './member_routes';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -31,6 +32,7 @@ const navigator = StackNavigator({
   Login: { screen: LoginScreen, navigationOptions: { header: null } },
   Signup: { screen: SignupScreen, navigationOptions: { header: null } },
   UpdateContact: { screen: UpdateContactScreen, navigationOptions: { header: null } },
+  ResetPassword: { screen: ResetPasswordScreen, navigationOptions: { header: null} },
   Home: { screen: MemberNavigator }
 }, {
   transitionConfig: () => ({
