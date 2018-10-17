@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import MemberHeader from '../../components/Member/Header';
 import styles from '../../styles/home';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,11 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default class FavoritesScreen extends Component {
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-      <Icon
-        name="star"
-        color={tintColor}
-        size={30}
-      />
+      <Image source={require('../../img/star-icon.png')} style={{tintColor}} />
     )
   }
   render() {

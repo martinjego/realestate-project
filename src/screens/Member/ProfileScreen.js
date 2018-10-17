@@ -28,11 +28,7 @@ class ProfileScreen extends Component {
 
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-      <Icon
-        name="user"
-        color={tintColor}
-        size={30}
-      />
+      <Image source={require('../../img/profile-icon.png')} style={{tintColor}} />
     )
   }
   render() {

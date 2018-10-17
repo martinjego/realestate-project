@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import MemberHeader from '../../components/Member/Header';
 import styles from '../../styles/home';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class FavoritesScreen extends Component {
+export default class ContactScreen extends Component {
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-      <Icon
-        name="envelope"
-        color={tintColor}
-        size={30}
-      />
+      <Image source={require('../../img/mail-icon.png')} style={{tintColor}} />
     )
   }
   render() {
