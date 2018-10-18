@@ -8,13 +8,22 @@ module.exports = StyleSheet.create({
     height: height*.10,
     backgroundColor: vars.colorPrimary,
     justifyContent: 'center',
-    paddingHorizontal: 30
+    paddingHorizontal: 30,
+    flexDirection: 'row'
   },
   titleStyle: {
-    marginTop: height*.03,
+    flex: 8,
+    marginTop: height*.04,
     color: vars.colorText,
     fontFamily: 'Avenir',
     fontSize: 20
-
+  },
+  backButtonStyle: {
+    marginTop: height*.04,
+    flex: 1 
+  },
+  closeButtonStyle: {
+    marginTop: height*.04,
+    flex: 1 
   }
 })

@@ -8,17 +8,27 @@ import { bindActionCreators } from 'redux';
 import * as loginActions from '../../actions/login_actions';
 import { retrieveData } from '../../utils/storage';
 
+import { NavigationActions } from 'react-navigation';
+
 import MemberHeader from '../../components/Member/Header';
 import styles from '../../styles/profile';
 
 class ProfileScreen extends Component {
+  logout() {
+    this.props.login_actions.logout(this.props.auth);
+
+    const actionToDispatch = NavigationActions.reset({
+      index: 0,
+      key: null,
+      actions: [NavigationActions.navigate({ routeName: 'Splash' })]
+    });
+
+    this.props.navigation.dispatch(actionToDispatch);
+  }
+
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-      <Icon
-        name="user"
-        color={tintColor}
-        size={30}
-      />
+      <Image source={require('../../img/profile-icon.png')} style={{tintColor}} />
     )
   }
   render() {
@@ -41,39 +51,39 @@ class ProfileScreen extends Component {
           </View>
         </View>
         <View style={styles.settingsContainer}>
-          <View style={styles.settingStyle}>
+          <TouchableOpacity onPress={() => navigate('UpdateContact')} style={styles.settingStyle}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/pen.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
-              <Text>Update Contact Details</Text>
+                <Text>Update Contact Details</Text>
             </View>
-          </View>
-          <View style={styles.settingStyle}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate('ResetPassword')} style={styles.settingStyle}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/power.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>Reset Password</Text>
             </View>
-          </View>
-          <View style={styles.settingStyle}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate('Home')} style={styles.settingStyle}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/inquiries.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>View My Inquiries</Text>
             </View>
-          </View>
-          <View style={styles.settingStyle}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate('Home')} style={styles.settingStyle}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/cart.png')} style={styles.iconStyle}/>
             </View>
             <View style={styles.settingTextContainer}>
               <Text>View My Listings</Text>
             </View>
-          </View>
-          <TouchableOpacity onPress={() => this.props.login_actions.logout()}style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.login_actions.logout()} style={{flex: 1, flexDirection: 'row', borderColor: '#fff', borderBottomWidth: 0}}>
             <View style={styles.iconContainer}>
               <Image source={require('../../img/logout.png')} style={styles.iconStyle}/>
             </View>
