@@ -32,9 +32,38 @@ class ListingScreen extends Component {
   getListing() {
     return this.state.residences.map(residence => {
       var swipeoutBtns = [
-        { text: 'Edit' },
-        { text: 'Delete' },
-
+        { 
+          text: 'Edit', 
+          backgroundColor:"#4696E2",
+          component: (
+          <View
+              style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+              }}
+          >
+            <Image source={require('../../img/pen.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
+          </View>
+          )
+        },
+        { 
+          text: 'Delete', 
+          backgroundColor:"#4696E2",
+          component: (
+          <View
+              style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+              }}
+          >
+            <Image source={require('../../img/trash-icon.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
+          </View>
+          )
+        }
       ]
       return (
         <Swipeout style={styles.swipeoutStyle} key={residence} right={swipeoutBtns}>
