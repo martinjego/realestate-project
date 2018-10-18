@@ -15,7 +15,7 @@ const additional_middleware = createReactNavigationReduxMiddleware(
 );
 
 if (__DEV__) {
-  middleware = [...middleware, logger];
+  middleware = [...middleware, logger, additional_middleware];
 } else {
   middleware = [...middleware, additional_middleware];
 }
