@@ -14,14 +14,13 @@ const Home = StackNavigator({
 })
 
 const TabMemberRoutes = TabNavigator({
-  Home: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
+  Home: { screen: Home },
   Favorites: { screen: FavoritesScreen, navigationOptions: { header: null, headerMode: 'screen' } },
   Post: { screen: PostScreen, navigationOptions: { header: null, headerMode: 'screen'} },
   Contact: { screen: ContactScreen, navigationOptions: { header: null, headerMode: 'screen'} },
   Profile: { screen: ProfileScreen, navigationOptions: { header: null, headerMode: 'screen' } },
 },{
-    swipeEnabled: true,
-    lazy: false,
+    animationEnabled: false,
     tabBarOptions: {
       activeTintColor: vars.colorPrimary,
       inactiveTintColor: 'gray',

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import MemberHeader from '../../components/Member/Header';
-import styles from '../../styles/home';
+import styles from '../../styles/listing';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Swiper from 'react-native-swiper';
+import Swipeout from 'react-native-swipeout';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,11 +14,7 @@ import * as listingActions from '../../actions/listing_actions';
 class ListingScreen extends Component {
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-      <Icon
-        name="home"
-        color={tintColor}
-        size={30}
-      />
+      <Image source={require('../../img/home-icon.png')} style={{tintColor}} />
     )
   }
   constructor() {
@@ -32,13 +31,24 @@ class ListingScreen extends Component {
   }
   getListing() {
     return this.state.residences.map(residence => {
+      var swipeoutBtns = [
+        { text: 'Edit' },
+        { text: 'Delete' },
+
+      ]
       return (
-        <TouchableOpacity key={residence}>
-          <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.listContainer}>
-            <View style={styles.overlay}/>
-            <Text style={styles.listTitle}>THE RESIDENCE {residence}</Text>
-          </ImageBackground>
-        </TouchableOpacity>
+        <Swipeout style={styles.swipeoutStyle} key={residence} right={swipeoutBtns}>
+          <View style={styles.listContainer}>
+            <View style={styles.listImageContainer}>
+              <Image source={require('../../img/res-bg-1.png')} resizeMode='contain' style={styles.listImage} />
+            </View>
+            <View style={styles.listDescriptionContainer}>
+              <Text style={styles.listTitle}>Listing {residence}</Text>
+              <Text style={styles.listDescription}>Listing description {residence}</Text>
+              <Text style={styles.listOwner}>Owner {residence}</Text>
+            </View>
+          </View>
+        </Swipeout>
       )
     })
   }
@@ -47,6 +57,19 @@ class ListingScreen extends Component {
     return (
       <View style={styles.container}>
         <MemberHeader title="Listing"/>
+        <View style={{minHeight: '30%'}}>
+          <Swiper>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
+              <Text style={styles.text}>Hello Swiper</Text>
+            </ImageBackground>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
+              <Text style={styles.text}>Hello Swiper</Text>
+            </ImageBackground>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
+              <Text style={styles.text}>Hello Swiper</Text>
+            </ImageBackground>
+          </Swiper>
+        </View>
         <ScrollView>
           {this.getListing()}
         </ScrollView>
