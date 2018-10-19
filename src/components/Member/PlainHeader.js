@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import styles from '../../styles/header';
-import vars from '../../styles/variables';
+import styles from '../../styles/plain-header';
 
-import LinearGradient from 'react-native-linear-gradient';
 
-export default class Header extends Component {
+export default class PlainHeader extends Component {
   getBackButton(goBack) {
     return (
       <TouchableOpacity onPress={() => goBack(null)} style={styles.backButtonStyle}>
@@ -23,13 +21,11 @@ export default class Header extends Component {
   render() {
     const { title, back, close }  = this.props;
     return(
-      <LinearGradient colors={vars.gradientColor}>
-        <View style={styles.container}>
-          { (back) ? this.getBackButton(back) : <View />}
-          <Text style={styles.titleStyle}>{title}</Text>
-          { (close) ? this.getCloseButton(close) : <View />}
-        </View>
-      </LinearGradient>
+      <View style={styles.container}>
+        { (back) ? this.getBackButton(back) : <View />}
+        <Text style={styles.titleStyle}>{title}</Text>
+        { (close) ? this.getCloseButton(close) : <View />}
+      </View>
     )
   }
 }

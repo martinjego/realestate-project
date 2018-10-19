@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-import MemberHeader from '../../components/Member/Header';
+import PlainHeader from '../../components/Member/PlainHeader';
 import styles from '../../styles/contact';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -23,7 +23,7 @@ export default class ContactScreen extends Component {
     const { navigate, goBack } = this.props.navigation
     return(
       <View style={styles.container}>
-        <MemberHeader title="Contact Us" close={goBack}/>
+        <PlainHeader title="Contact Us" close={goBack}/>
         <View style={styles.formContainer}>
           <View style={styles.inputContainer}>
             <TextInput

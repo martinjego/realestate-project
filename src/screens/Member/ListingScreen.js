@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import MemberHeader from '../../components/Member/Header';
 import styles from '../../styles/listing';
+import vars from '../../styles/variables';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 import Swipeout from 'react-native-swipeout';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -34,34 +36,28 @@ class ListingScreen extends Component {
       var swipeoutBtns = [
         { 
           text: 'Edit', 
-          backgroundColor:"#4696E2",
           component: (
-          <View
-              style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-              }}
+          <LinearGradient colors={vars.gradientColor}
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+            }}
           >
+
             <Image source={require('../../img/pen.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
-          </View>
+          </LinearGradient>
           )
         },
         { 
           text: 'Delete', 
-          backgroundColor:"#4696E2",
           component: (
-          <View
-              style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-              }}
+          <LinearGradient colors={vars.gradientColor}
+            style={styles.swipeButtonStyle}
           >
             <Image source={require('../../img/trash-icon.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
-          </View>
+          </LinearGradient>
           )
         }
       ]
