@@ -4,5 +4,7 @@ export default vars = {
   colorText: "#FFF",
   colorWhite: "#FFF",
   colorGray: "#A8B6C8",
-  fontFamily: "Avenir"
+  colorBlack: "#000",
+  fontFamily: "Avenir",
+  gradientColor: ['#4696E2', '#4FBFEA']
 }
