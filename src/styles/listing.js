@@ -12,6 +12,12 @@ module.exports = StyleSheet.create({
     borderBottomWidth: 1, 
     borderColor: vars.colorGray 
   },
+  swipeButtonStyle: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
   listContainer: {
     flexDirection: 'row',
     backgroundColor: vars.colorWhite,
@@ -47,7 +53,7 @@ module.exports = StyleSheet.create({
     fontFamily: 'Avenir',
     color: vars.colorGray
   },
-  listOwner: {
+  LinearGradientlistOwner: {
     fontSize: 12,
     color: vars.colorPrimary,
     fontFamily: 'Avenir',

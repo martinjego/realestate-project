@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import variables from './variables';
+import vars from './variables';
 const { width, height } = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
@@ -7,6 +7,7 @@ module.exports = StyleSheet.create({
     top: 0,
     height: height*.10,
     justifyContent: 'center',
+    backgroundColor: vars.colorPrimary,
     paddingHorizontal: 30,
     flexDirection: 'row'
   },

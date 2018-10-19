@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, ImageBackground, TouchableOpacity, TextInput, Image } from 'react-native';
-import MemberHeader from '../../components/Member/Header';
+import PlainHeader from '../../components/Member/PlainHeader';
 import styles from '../../styles/update-profile';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MainBackground from '../../components/Member/MainBackground';
@@ -19,7 +19,7 @@ export default class ResetPasswordScreen extends Component{
     const { navigate, goBack } = this.props.navigation
     return(
       <View style={styles.container}>
-        <MemberHeader title="Reset Password" close={goBack}/>
+        <PlainHeader title="Reset Password" close={goBack}/>
         <View style={styles.formContainer}>
           <View style={styles.inputContainer}>
             <Image source={require('../../img/old-lock.png')} style={styles.inputIcon} />
