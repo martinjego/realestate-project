@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { View, Text, ScrollView, ImageBackground, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import MemberHeader from '../../components/Member/Header';
+import Loading from '../../components/Loading';
 import styles from '../../styles/listing';
 import vars from '../../styles/variables';
 
@@ -21,18 +22,11 @@ class ListingScreen extends Component {
   }
   constructor() {
     super();
-    this.state = {
-      residences: ["1","2","3","4","5"]
-    }
 
     this.getListing = this.getListing.bind(this)
   }
-  componentDidMount() {
-    //const { auth: {user: { api_token } }, building_actions } = this.props
-    //this.props.building_actions.get_buildings(api_token); 
-  }
   getListing() {
-    return this.state.residences.map(residence => {
+    return this.props.listings.list.map(list => {
       var swipeoutBtns = [
         { 
           text: 'Edit', 
@@ -62,15 +56,15 @@ class ListingScreen extends Component {
         }
       ]
       return (
-        <Swipeout style={styles.swipeoutStyle} key={residence} right={swipeoutBtns}>
+        <Swipeout style={styles.swipeoutStyle} key={list.listing_id} right={swipeoutBtns}>
           <View style={styles.listContainer}>
             <View style={styles.listImageContainer}>
               <Image source={require('../../img/res-bg-1.png')} resizeMode='contain' style={styles.listImage} />
             </View>
             <View style={styles.listDescriptionContainer}>
-              <Text style={styles.listTitle}>Listing {residence}</Text>
-              <Text style={styles.listDescription}>Listing description {residence}</Text>
-              <Text style={styles.listOwner}>Owner {residence}</Text>
+              <Text style={styles.listTitle}>{list.name.substring(0,15)}</Text>
+              <Text style={styles.listDescription}>{list.description.substring(0,45)}...</Text>
+              <Text style={styles.listOwner}>Owner {list.user_id}</Text>
             </View>
           </View>
         </Swipeout>
@@ -78,25 +72,31 @@ class ListingScreen extends Component {
     })
   }
   render() {
-    const { navigate } = this.props.navigation
+    const { listings, navigation: { navigate } } = this.props
     return (
       <View style={styles.container}>
-        <MemberHeader title="Listing"/>
+        <MemberHeader title="Listing" sort={() => navigate('DrawerOpen')}/>
         <View style={{minHeight: '30%'}}>
           <Swiper>
-            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
-              <Text style={styles.text}>Hello Swiper</Text>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.swiperBackground}>
+              <View style={styles.overlay}/>
+              <Text style={styles.swiperTitle}>Hello Swiper</Text>
+              <Text style={styles.swiperDescription}>Hello Swiper</Text>
             </ImageBackground>
-            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
-              <Text style={styles.text}>Hello Swiper</Text>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.swiperBackground}>
+              <View style={styles.overlay}/>
+              <Text style={styles.swiperTitle}>Hello Swiper</Text>
+              <Text style={styles.swiperDescription}>Hello Swiper</Text>
             </ImageBackground>
-            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={{ height: '100%', width: '100%'}}>
-              <Text style={styles.text}>Hello Swiper</Text>
+            <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.swiperBackground}>
+              <View style={styles.overlay}/>
+              <Text style={styles.swiperTitle}>Hello Swiper</Text>
+              <Text style={styles.swiperDescription}>Hello Swiper</Text>
             </ImageBackground>
           </Swiper>
         </View>
         <ScrollView>
-          {this.getListing()}
+          { (listings.isFetching) ? <Loading /> : this.getListing() }
         </ScrollView>
       </View>
     )
@@ -105,7 +105,8 @@ class ListingScreen extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    listings: state.listings
   }
 }
 

@@ -6,11 +6,17 @@ import ContactScreen from "../screens/Member/ContactScreen";
 import ProfileScreen from "../screens/Member/ProfileScreen";
 import ListingScreen from "../screens/Member/ListingScreen";
 
+import SortDrawerContainer from "../components/SortDrawerContainer";
+
 import vars from "../styles/variables"
 
-const Home = StackNavigator({
+const Home = DrawerNavigator({
   Building: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
   Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } }
+}, {
+  drawerPosition: 'right',
+  drawerWidth: 200,
+  contentComponent: SortDrawerContainer 
 })
 
 const TabMemberRoutes = TabNavigator({

@@ -20,14 +20,22 @@ export default class Header extends Component {
       </TouchableOpacity>
     )    
   }
+  getOpenListingDrawer(openDrawer) {
+    return (
+      <TouchableOpacity onPress={() => openDrawer()} style={styles.closeButtonStyle}>
+        <Image source={require('../../img/sort-icon.png')} />
+      </TouchableOpacity>
+    )    
+  }
   render() {
-    const { title, back, close }  = this.props;
+    const { title, back, close, sort }  = this.props;
     return(
       <LinearGradient colors={vars.gradientColor}>
         <View style={styles.container}>
           { (back) ? this.getBackButton(back) : <View />}
           <Text style={styles.titleStyle}>{title}</Text>
           { (close) ? this.getCloseButton(close) : <View />}
+          { (sort) ? this.getOpenListingDrawer(sort) : <View />}
         </View>
       </LinearGradient>
     )

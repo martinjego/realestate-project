@@ -7,6 +7,22 @@ module.exports = StyleSheet.create({
     flex: 1,
     backgroundColor: vars.colorWhite
   },
+  swiperBackground: {
+    height: '100%', 
+    width: '100%',
+    justifyContent: 'center',
+    paddingLeft: '10%'
+  },
+  swiperTitle: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    color: '#fff'
+  },
+  swiperDescription: {
+    fontFamily: 'Avenir',
+    fontSize: 15,
+    color: '#fff'
+  },
   swipeoutStyle: {
     backgroundColor: '#fff', 
     borderBottomWidth: 1, 
@@ -44,18 +60,32 @@ module.exports = StyleSheet.create({
     alignItems: 'stretch'
   },
   listTitle: {
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: 'Avenir',
     color: vars.colorBlack
   },
   listDescription: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: 'Avenir',
     color: vars.colorGray
+  },
+  listOwner: {
+    fontSize: 10,
+    fontFamily: 'Avenir',
+    color: vars.colorPrimary
   },
   LinearGradientlistOwner: {
     fontSize: 12,
     color: vars.colorPrimary,
     fontFamily: 'Avenir',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: 'black',
+    opacity: 0.5
   }
 })

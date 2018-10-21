@@ -1,6 +1,7 @@
 const initialState = {
-  buildings: [], 
+  list: [], 
   isFetching: false,
+  isClicked: 0
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +12,7 @@ export default function(state = initialState, action) {
       })
     case 'GET_BUILDING_SUCCESS':
       return Object.assign({}, state, {
-        buildings: action.payload,
+        list: action.payload,
         isFetching: false 
       })
     case 'GET_BUILDING_FAILED':

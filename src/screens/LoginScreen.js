@@ -9,6 +9,7 @@ import { Button, Headline, Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import MainBackground from '../components/Member/MainBackground';
+import Loading from '../components/Loading';
 import styles from '../styles/login';
 
 import { connect } from 'react-redux';
@@ -39,7 +40,10 @@ class LoginScreen extends Component {
     }
   }
   render() {
-    const { navigation: { navigate }, login_actions  } = this.props
+    const { navigation: { navigate }, auth,  login_actions  } = this.props
+    if (auth.isFetching) {
+      return <Loading />
+    }
     return (
         <MainBackground>
           <View style={styles.logoContainer}>
@@ -96,7 +100,7 @@ class LoginScreen extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.user
+    auth: state.auth
   }
 }
 

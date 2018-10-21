@@ -28,7 +28,7 @@ export function getBuildingFailed() {
 export function get_buildings(access_token) {
   return dispatch => {
     dispatch(getBuildingRequest())
-    fetch(`${API_KEY}/bldgs`, {
+    fetch(`${API_KEY}/bldgs/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ export function get_buildings(access_token) {
     .then(responsejson => {
       if (responsejson.code == 200) {
         dispatch(getBuildingSuccess(responsejson.data))
-        ALERT.alert(responsejson.message);
       } else {
         console.log(responsejson)
         dispatch(getBuildingFailed())

@@ -6,6 +6,13 @@ import { API_KEY } from  '../config/api';
 
 const ALERT = (Platform.OS === 'ios') ? AlertIOS : Alert;
 
+export function updateSortType(type) {
+  return {
+    type: 'UPDATE_SORT_TYPE',
+    payload: type
+  }
+}
+
 export function getListingRequest() {
   return {
     type: 'GET_LISTING_REQUEST'
@@ -15,7 +22,7 @@ export function getListingRequest() {
 export function getListingSuccess(listings) {
   return {
     type: 'GET_LISTING_SUCCESS',
-    payload: bldgs,
+    payload: listings,
   }
 }
 
@@ -25,22 +32,21 @@ export function getListingFailed() {
   }
 }
 
-export function get_listings(access_token) {
+export function get_bldg_listings(bldg_id, api_token) {
   return dispatch => {
     dispatch(getListingRequest())
-    fetch(`${API_KEY}/bldgs`, {
+    fetch(`${API_KEY}/bldgs/1/listings`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `Bearer ${access_token}`
+        Authorization: `Bearer ${api_token}`
       }
     })
     .then(response => response.json())
     .then(responsejson => {
       if (responsejson.code == 200) {
         dispatch(getListingSuccess(responsejson.data))
-        ALERT.alert(responsejson.message);
       } else {
         console.log(responsejson)
         dispatch(getListingFailed())
