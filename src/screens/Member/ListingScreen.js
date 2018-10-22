@@ -72,10 +72,10 @@ class ListingScreen extends Component {
     })
   }
   render() {
-    const { listings, navigation: { navigate } } = this.props
+    const { listings, navigation: { navigate, goBack } } = this.props
     return (
       <View style={styles.container}>
-        <MemberHeader title="Listing" sort={() => navigate('DrawerOpen')}/>
+        <MemberHeader title="Listing" back={goBack} sort={() => navigate('DrawerOpen')}/>
         <View style={{minHeight: '30%'}}>
           <Swiper>
             <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.swiperBackground}>
