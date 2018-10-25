@@ -56,8 +56,9 @@ class LoginScreen extends Component {
           </View>
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
-              <Icon name="envelope-o" style={{flex: 1}} size={20}/>
+              <Icon name="envelope-o" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 autoCapitalize="none"
                 autoCorrect={false}
                 value={this.state.email}
@@ -67,8 +68,9 @@ class LoginScreen extends Component {
               />
             </View>
             <View style={styles.inputContainer}>
-              <Icon name="lock" style={{flex: 1}} size={20}/>
+              <Icon name="lock" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 value={this.state.password}
                 onChangeText={password => this.setState({ password })}
                 style={{ flex: 8 }}

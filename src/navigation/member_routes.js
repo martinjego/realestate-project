@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import HomeScreen from "../screens/Member/HomeScreen";
 import FavoritesScreen from "../screens/Member/FavoritesScreen";
@@ -10,13 +11,10 @@ import SortDrawerContainer from "../components/SortDrawerContainer";
 
 import vars from "../styles/variables"
 
-const Home = DrawerNavigator({
+
+const Home = StackNavigator({
   Building: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
   Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } }
-}, {
-  drawerPosition: 'right',
-  drawerWidth: 200,
-  contentComponent: SortDrawerContainer 
 })
 
 const TabMemberRoutes = TabNavigator({
@@ -26,10 +24,22 @@ const TabMemberRoutes = TabNavigator({
   Contact: { screen: ContactScreen, navigationOptions: { header: null, headerMode: 'screen'} },
   Profile: { screen: ProfileScreen, navigationOptions: { header: null, headerMode: 'screen' } },
 },{
+    swipeEnabled: false,
+    tabBarPosition: 'bottom',
     animationEnabled: false,
     tabBarOptions: {
       activeTintColor: vars.colorPrimary,
       inactiveTintColor: 'gray',
+      showIcon: true,
+      style: {
+        backgroundColor: '#fff',
+      },
+      renderIndicator: () => null,
+      labelStyle: {
+        fontSize: Platform.OS === "ios" ? 10 : 7 ,
+        color: '#000',
+        fontFamily: vars.fontFamilyLight
+      },
     },
   }
 )
@@ -39,6 +49,7 @@ const MemberNavigator = DrawerNavigator({
 }, {
     drawerPosition: 'right',
     drawerWidth: 250,
+    contentComponent: SortDrawerContainer 
   }
 )
 

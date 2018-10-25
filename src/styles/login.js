@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
@@ -23,10 +23,16 @@ module.exports = StyleSheet.create({
     backgroundColor: '#fff',  
     borderColor: '#000', 
     borderRadius: 10, 
-    padding: 15, 
+    alignItems: 'center',
+    padding: (Platform.OS == 'ios') ? 15 : 0, 
+    justifyContent: 'center',
     flexDirection: 'row',
     marginVertical: 5 
 
+  },
+  inputIconStyle: {
+    flex: 1, 
+    textAlign: 'center'
   },
   buttonContainer: {
     backgroundColor: vars.colorSecondary,
