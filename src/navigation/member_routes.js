@@ -38,7 +38,9 @@ const TabMemberRoutes = TabNavigator({
       labelStyle: {
         fontSize: Platform.OS === "ios" ? 10 : 7 ,
         color: '#000',
-        fontFamily: vars.fontFamilyLight
+        fontFamily: vars.fontFamilyLight,
+        margin: 0,
+        padding: 0,
       },
     },
   }
