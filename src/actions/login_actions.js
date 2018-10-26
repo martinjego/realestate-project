@@ -107,7 +107,11 @@ export function login(state) {
         storeData('email', state.email);
         storeData('password', state.password);
 
-        dispatch(NavigationActions.navigate({ routeName: 'Home' }));
+        if (responsejson.data.type === "0") {
+          dispatch(NavigationActions.navigate({ routeName: 'Admin' }));
+        } else {
+          dispatch(NavigationActions.navigate({ routeName: 'Member' }));
+        }
       }
     })
     .catch(error => {

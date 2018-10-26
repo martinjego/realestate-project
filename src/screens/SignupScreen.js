@@ -34,39 +34,43 @@ export default class SignupScreen extends Component {
           </View>
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
-              <Icon name="user-o" style={{flex: 1}} size={20}/>
+              <Icon name="user-o" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 value={this.state.name}
                 onChangeText={name => this.setState({ name })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Email"
               />
             </View>
             <View style={styles.inputContainer}>
-              <Icon name="envelope-o" style={{flex: 1}} size={20}/>
+              <Icon name="envelope-o" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 value={this.state.email}
                 onChangeText={email => this.setState({ email })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Email"
               />
             </View>
             <View style={styles.inputContainer}>
-              <Icon name="lock" style={{flex: 1}} size={20}/>
+              <Icon name="lock" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 value={this.state.password}
                 onChangeText={password => this.setState({ password })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Password"
                 secureTextEntry={true}
               />
             </View>
             <View style={styles.inputContainer}>
-              <Icon name="phone" style={{flex: 1}} size={20}/>
+              <Icon name="phone" style={styles.inputIconStyle} size={20}/>
               <TextInput
+                underlineColorAndroid="transparent"
                 value={this.state.phone}
                 onChangeText={phone => this.setState({ phone })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Phone"
                 secureTextEntry={true}
               />

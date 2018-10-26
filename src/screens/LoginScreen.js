@@ -63,7 +63,7 @@ class LoginScreen extends Component {
                 autoCorrect={false}
                 value={this.state.email}
                 onChangeText={email => this.setState({ email })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Email"
               />
             </View>
@@ -73,7 +73,7 @@ class LoginScreen extends Component {
                 underlineColorAndroid="transparent"
                 value={this.state.password}
                 onChangeText={password => this.setState({ password })}
-                style={{ flex: 8 }}
+                style={styles.inputStyle}
                 placeholder="Password"
                 secureTextEntry={true}
               />

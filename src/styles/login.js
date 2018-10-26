@@ -34,6 +34,10 @@ module.exports = StyleSheet.create({
     flex: 1, 
     textAlign: 'center'
   },
+  inputStyle: {
+    flex: 6,
+    fontFamily: vars.fontFamily
+  },
   buttonContainer: {
     backgroundColor: vars.colorSecondary,
     borderRadius: 20,

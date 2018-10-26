@@ -6,6 +6,9 @@ import UpdateContactScreen from "../screens/Member/UpdateContactScreen";
 import ResetPasswordScreen from "../screens/Member/ResetPasswordScreen";
 //Member
 import MemberNavigator from './member_routes';
+//Admin
+import AdminNavigator from './admin_routes';
+
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
 const fade = (props) => {
@@ -33,7 +36,8 @@ const navigator = StackNavigator({
   Signup: { screen: SignupScreen, navigationOptions: { header: null } },
   UpdateContact: { screen: UpdateContactScreen, navigationOptions: { header: null } },
   ResetPassword: { screen: ResetPasswordScreen, navigationOptions: { header: null} },
-  Home: { screen: MemberNavigator }
+  Member: { screen: MemberNavigator },
+  Admin: { screen: AdminNavigator }
 }, {
   transitionConfig: () => ({
     screenInterpolator: (props) => {
