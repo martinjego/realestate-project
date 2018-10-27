@@ -3,6 +3,7 @@ import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation'
 import HomeScreen from "../screens/Admin/HomeScreen";
 import ProfileScreen from "../screens/Admin/ProfileScreen";
 import ListingScreen from "../screens/Admin/ListingScreen";
+import AddListingScreen from "../screens/Admin/AddListingScreen";
 
 import SortDrawerContainer from "../components/SortDrawerContainer";
 
@@ -11,7 +12,7 @@ import vars from "../styles/variables"
 
 const Home = StackNavigator({
   Building: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
-  Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } }
+  Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } },
 })
 
 const TabAdminRoutes = TabNavigator({

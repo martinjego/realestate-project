@@ -4,6 +4,7 @@ import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/SignupScreen";
 import UpdateContactScreen from "../screens/Member/UpdateContactScreen";
 import ResetPasswordScreen from "../screens/Member/ResetPasswordScreen";
+import AddListingScreen from "../screens/Admin/AddListingScreen";
 //Member
 import MemberNavigator from './member_routes';
 //Admin
@@ -36,6 +37,7 @@ const navigator = StackNavigator({
   Signup: { screen: SignupScreen, navigationOptions: { header: null } },
   UpdateContact: { screen: UpdateContactScreen, navigationOptions: { header: null } },
   ResetPassword: { screen: ResetPasswordScreen, navigationOptions: { header: null} },
+  AddListing: { screen: AddListingScreen, navigationOptions: { header: null } },
   Member: { screen: MemberNavigator },
   Admin: { screen: AdminNavigator }
 }, {

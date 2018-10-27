@@ -51,7 +51,7 @@ class HomeScreen extends Component {
     const { bldgs, navigation: { navigate } } = this.props
     return (
       <View style={styles.container}>
-        <AdminHeader title="Manage Buildings" addBuilding={() => navigate('Home')}/>
+        <AdminHeader title="Manage Buildings" addBuilding={() => navigate('AddListing')}/>
         <ScrollView>
           {(bldgs.isFetching) ? <Loading /> : this.getResidence()}
         </ScrollView>
