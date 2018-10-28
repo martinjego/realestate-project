@@ -6,6 +6,7 @@ import PostScreen from "../screens/Member/PostScreen";
 import ContactScreen from "../screens/Member/ContactScreen";
 import ProfileScreen from "../screens/Member/ProfileScreen";
 import ListingScreen from "../screens/Member/ListingScreen";
+import ListScreen from "../screens/Member/ListScreen";
 
 import SortDrawerContainer from "../components/SortDrawerContainer";
 
@@ -14,7 +15,8 @@ import vars from "../styles/variables"
 
 const Home = StackNavigator({
   Building: { screen: HomeScreen, navigationOptions: { header: null, headerMode: 'screen' } },
-  Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } }
+  Listing: { screen: ListingScreen, navigationOptions: { header: null, headerMode: 'screen' } },
+  List: { screen: ListScreen , navigationOptions: { header: null, headerMode: 'screen' } }
 })
 
 const TabMemberRoutes = TabNavigator({

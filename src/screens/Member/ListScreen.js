@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as listingActions from '../../actions/listing_actions';
 
-class ListingScreen extends Component {
+class ListScreen extends Component {
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
       <Image source={require('../../img/home-icon.png')} style={{tintColor}} />
@@ -23,62 +23,12 @@ class ListingScreen extends Component {
   constructor() {
     super();
 
-    this.getListing = this.getListing.bind(this)
-  }
-  onClickEdit(list_id) {
-    const { auth: { user: { api_token } } } = this.props; 
-    this.props.listing_actions.update_active_list(list_id, api_token)
-    this.props.navigation.navigate('List')
-  }
-  getListing() {
-    return this.props.listings.list.map(list => {
-      var swipeoutBtns = [
-        { 
-          text: 'Edit', 
-          onPress: () => this.onClickEdit(list.listing_id),
-          component: (
-          <LinearGradient colors={vars.gradientColor}
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-            }}
-          >
-
-            <Image source={require('../../img/pen.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
-          </LinearGradient>
-          )
-        },
-        { 
-          text: 'Delete', 
-          component: (
-          <LinearGradient colors={vars.gradientColor}
-            style={styles.swipeButtonStyle}
-          >
-            <Image source={require('../../img/trash-icon.png')} style={{tintColor: '#fff', resizeMode: 'contain', width: 25, height: 25}} />
-          </LinearGradient>
-          )
-        }
-      ]
-      return (
-        <Swipeout style={styles.swipeoutStyle} key={list.listing_id} right={swipeoutBtns}>
-          <View style={styles.listContainer}>
-            <View style={styles.listImageContainer}>
-              <Image source={require('../../img/res-bg-1.png')} resizeMode='contain' style={styles.listImage} />
-            </View>
-            <View style={styles.listDescriptionContainer}>
-              <Text style={styles.listTitle}>{list.name.substring(0,15)}</Text>
-              <Text style={styles.listDescription}>{list.description.substring(0,45)}...</Text>
-              <Text style={styles.listOwner}>Owner {list.user_id}</Text>
-            </View>
-          </View>
-        </Swipeout>
-      )
-    })
   }
   render() {
     const { listings, navigation: { navigate, goBack } } = this.props
+    if (listings.isFetching) {
+      return <Loading />
+    }
     return (
       <View style={styles.container}>
         <MemberHeader title="Listing" back={goBack} sort={() => navigate('DrawerOpen')}/>
@@ -102,7 +52,7 @@ class ListingScreen extends Component {
           </Swiper>
         </View>
         <ScrollView>
-          { (listings.isFetching) ? <Loading /> : this.getListing() }
+          <Text>List Screen</Text>
         </ScrollView>
       </View>
     )
@@ -122,5 +72,5 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListingScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ListScreen);
 

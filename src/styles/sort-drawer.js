@@ -10,6 +10,8 @@ module.exports = StyleSheet.create({
   notSelectedButton: {
     backgroundColor: '#9B9B9B',
     borderRadius: 5, 
+    borderWidth: 2, 
+    borderColor: 'transparent', 
     width: '70%', 
     marginVertical: '5%'
   },
