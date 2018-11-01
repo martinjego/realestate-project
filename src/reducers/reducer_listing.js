@@ -1,12 +1,60 @@
 const initialState = {
+  all_list: [],
   list: [], 
   isFetching: false,
   sortType: null,
-  activeList: {} 
+  activeList: {},
+  likedList: []
 }
 
 export default function(state = initialState, action) {
   switch(action.type) {
+    case 'GET_ALL_LISTING_REQUEST':
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case 'GET_ALL_LISTING_SUCCESS':
+      return Object.assign({}, state, {
+        isFetching: false,
+        all_list: action.payload
+      })
+    case 'GET_ALL_LISTING_FAILED':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
+    case 'GET_LIKE_LISTING_REQUEST':
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case 'GET_LIKE_LISTING_SUCCESS':
+      return Object.assign({}, state, {
+        isFetching: false,
+        likedList: action.payload
+      })
+    case 'GET_LIKE_LISTING_FAILED':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
+    case 'LIKE_LIST_SUCCESS':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
+    case 'LIKE_LIST_FAILED':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
+    case 'LIKE_LIST_REQUEST':
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case 'LIKE_LIST_SUCCESS':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
+    case 'LIKE_LIST_FAILED':
+      return Object.assign({}, state, {
+        isFetching: false
+      })
     case 'UPDATE_ACTIVE_LIST_REQUEST':
       return Object.assign({}, state, {
         isFetching: true

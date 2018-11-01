@@ -2,7 +2,7 @@ import { Alert, AlertIOS, Platform, AsyncStorage } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 import { storeData, retrieveData, removeData } from '../utils/storage';
-import { API_LOGIN_KEY } from  '../config/api';
+import { API_LOGIN_KEY, API_KEY } from  '../config/api';
 
 const ALERT = (Platform.OS === 'ios') ? AlertIOS : Alert;
 
@@ -34,13 +34,6 @@ export function sessionFailed() {
 export function logoutRequest() {
   return {
     type: 'USER_LOGOUT'
-  }
-}
-
-export function updateCustomerLocation(coords) {
-  return {
-    type: 'UPDATE_CUSTOMER_LOCATION',
-    payload: coords
   }
 }
 
@@ -80,8 +73,6 @@ export function sign_up(state) {
 }
 
 export function login(state) {
-  console.log('email', state.email)
-  console.log('password', state.password)
   return dispatch => {
     dispatch(sessionRequest())
     fetch(`${API_LOGIN_KEY}/login`, {
@@ -130,3 +121,108 @@ export function logout(auth) {
   }
 }
 
+export function updateContactRequest() {
+  return {
+    type: 'UPDATE_CONTACT_REQUEST'
+  }
+}
+
+export function updateContactSuccess() {
+  return {
+    type: 'UPDATE_CONTACT_SUCCESS'
+  }
+}
+
+export function updateContactFailed() {
+  return {
+    type: 'UPDATE_CONTACT_FAILED'
+  }
+}
+
+export function update_contact(state, user) {
+  return dispatch => {
+    dispatch(updateContactRequest())
+    fetch(`${API_KEY}/users/${user.user_id}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.api_token}`
+      },
+      body: JSON.stringify({
+        mobile: state.mobile,
+        email: state.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+      }),
+    })
+    .then(response => response.json())
+    .then(responsejson => {
+      console.log(responsejson)
+      if (responsejson.code == 200) {
+        dispatch(updateContactSuccess(responsejson));
+      } else {
+        dispatch(updateContactFailed())
+        ALERT.alert(responsejson.message);
+      }
+    })
+    .catch(error => {
+      dispatch(updateContactFailed())
+      ALERT.alert('Server error. Please contact the admin.');
+      console.log(error)
+    })
+  }
+}
+
+export function updatePasswordRequest() {
+  return {
+    type: 'UPDATE_CONTACT_REQUEST'
+  }
+}
+
+export function updatePasswordSuccess() {
+  return {
+    type: 'UPDATE_CONTACT_SUCCESS'
+  }
+}
+
+export function updatePasswordFailed() {
+  return {
+    type: 'UPDATE_CONTACT_FAILED'
+  }
+}
+
+export function update_password(state, user) {
+  return dispatch => {
+    dispatch(updateContactRequest())
+    fetch(`${API_KEY}/users/${user.user_id}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.api_token}`
+      },
+      body: JSON.stringify({
+        mobile: state.mobile,
+        email: state.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+      }),
+    })
+    .then(response => response.json())
+    .then(responsejson => {
+      console.log(responsejson)
+      if (responsejson.code == 200) {
+        dispatch(updateContactSuccess(responsejson));
+      } else {
+        dispatch(updateContactFailed())
+        ALERT.alert(responsejson.message);
+      }
+    })
+    .catch(error => {
+      dispatch(updateContactFailed())
+      ALERT.alert('Server error. Please contact the admin.');
+      console.log(error)
+    })
+  }
+}

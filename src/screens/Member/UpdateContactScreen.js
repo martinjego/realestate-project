@@ -5,17 +5,24 @@ import styles from '../../styles/update-profile';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MainBackground from '../../components/Member/MainBackground';
 
-export default class UpdateContactScreen extends Component {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as userActions from '../../actions/login_actions';
+
+class UpdateContactScreen extends Component {
   constructor(){
     super();
 
     this.state = {
       email: '',
-      phone: '',
+      mobile: '',
     }
   }
   render(){
-    const { navigate, goBack } = this.props.navigation
+    const { 
+      navigation: { navigate, goBack }, 
+      user_actions, auth: { user } 
+    } = this.props;
     return (
       <View style={styles.container}>
         <PlainHeader title="Update Contact Details" close={goBack}/>
@@ -23,8 +30,9 @@ export default class UpdateContactScreen extends Component {
           <View style={styles.inputContainer}>
             <Image source={require('../../img/mobile-icon.png')} style={styles.inputIcon} />
             <TextInput
-              value={this.state.password}
-              onChangeText={password => this.setState({ phone })}
+              keyboardType="phone-pad"
+              value={this.state.mobile}
+              onChangeText={mobile => this.setState({ mobile })}
               style={{ flex: 4 }}
               placeholder="Edit mobile address"
             />
@@ -32,6 +40,7 @@ export default class UpdateContactScreen extends Component {
           <View style={styles.inputContainer}>
             <Image source={require('../../img/mail-icon.png')} style={styles.inputIcon} />
             <TextInput
+              autoCapitalize='none'
               value={this.state.new_password}
               onChangeText={email => this.setState({ email })}
               style={{ flex: 4 }}
@@ -39,10 +48,25 @@ export default class UpdateContactScreen extends Component {
             />
           </View>
         </View>
-        <TouchableOpacity onPress={() => navigate('Profile')} style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => user_actions.update_contact(this.state, user)} style={styles.buttonContainer}>
           <Text style={styles.buttonText}>UPDATE</Text>
         </TouchableOpacity>
       </View>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    user_actions: bindActionCreators(userActions, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateContactScreen);
+

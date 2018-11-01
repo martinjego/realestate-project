@@ -23,6 +23,15 @@ module.exports = StyleSheet.create({
   },
   closeButtonStyle: {
     marginTop: height*.04,
-    flex: 1 
+    flex: 1,
+  },
+  likeButtonStyle: {
+    marginLeft: '5%',
+    marginTop: height*.04,
+    flex: 2,
+  },
+  exportButtonStyle: {
+    marginTop: height*.04,
+    flex: 2,
   }
 })

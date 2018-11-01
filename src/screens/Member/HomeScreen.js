@@ -20,14 +20,32 @@ class HomeScreen extends Component {
   constructor() {
     super();
     this.state = {
-      residences: ["1","2","3","4","5"]
+      list: [
+        {
+          "id": 1,
+          "user_id": "1",
+          "name": "Hello world",
+          "description": "",
+          "status": "1",
+          "images": [
+              {
+                  "id": 9,
+                  "image_url": "http://spectrum.magnetmanila.com/public/image/68b8dfd48f9bed46.jpg"
+              },
+              {
+                  "id": 10,
+                  "image_url": "http://spectrum.magnetmanila.com/public/image/f40fce8d31796e65.jpg"
+              }
+          ]
+        }
+      ]
     }
 
     this.getResidence = this.getResidence.bind(this)
   }
   componentDidMount() {
-    const { auth: {user: { api_token } }, building_actions } = this.props
-    building_actions.get_buildings(api_token); 
+    //const { auth: {user: { api_token } }, building_actions } = this.props
+    //building_actions.get_buildings(api_token); 
   }
   clickedBldg(bldg_id) {
     const { auth: {user: { api_token } }, listing_actions } = this.props
@@ -35,9 +53,9 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('Listing')
   }
   getResidence() {
-    return this.props.bldgs.list.map(bldg => {
+    return this.state.list.map(bldg => {
       return (
-        <TouchableOpacity onPress={() => this.clickedBldg(bldg.bldg_id)} key={bldg.bldg_id}>
+        <TouchableOpacity onPress={() => this.clickedBldg(bldg.id)} key={bldg.id}>
           <ImageBackground source={require('../../img/res-bg-1.png')} resizeMode='cover' style={styles.listContainer}>
             <View style={styles.overlay}/>
             <Text style={styles.listTitle}>{bldg.name}</Text>
